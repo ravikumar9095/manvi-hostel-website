@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rooms - MANVI Luxury Ladies Hostel</title>
+  <link rel="stylesheet" href="styles/style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f9f9f9;
+    }
+
+    header {
+      background-color: #5f4dee;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav a {
+      margin: 0 15px;
+      color: white;
+      text-decoration: none;
+    }
+
+    nav a.active {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    h2 {
+      text-align: center;
+      color: #5f4dee;
+      margin-top: 1rem;
+    }
+
+    .room-section {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    .room {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4rem;
+    }
+
+    .room.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .room-gallery {
+      flex: 0 0 50%;
+      position: relative;
+      margin-right: 1rem;
+    }
+
+    .room-gallery img {
+      width: 100%;
+      height: auto;
+    }
+
+    .room-details {
+      flex: 0 0 50%;
+      padding: 0 1rem;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      background: rgba(0, 0, 0, 0.4);
+      color: white;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      z-index: 10;
+    }
+
+    .arrow.left {
+      left: 0.5rem;
+    }
+
+    .arrow.right {
+      right: 0.5rem;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.95rem;
+    }
+
+    footer a {
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>MANVI Luxury Ladies Hostel (PG)</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="rooms.html" class="active">Rooms</a>
+      <a href="facilities.html">Facilities</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <h2>Our Rooms</h2>
+
+  <div class="room-section">
+    <div class="room">
+      <div class="room-gallery">
+        <button class="arrow left" onclick="prevImage('room1')">&#10094;</button>
+        <img id="room1" src="images/1sharing.jpeg" alt="1 Sharing Room">
+        <button class="arrow right" onclick="nextImage('room1')">&#10095;</button>
+      </div>
+      <div class="room-details">
+        <h3>1 Sharing Room - ₹5500/month</h3>
+        <p>Perfect for solo living, offering complete privacy with modern comforts. The room is fully furnished and well-ventilated.</p>
+        <ul>
+          <li>Spacious single cot with mattress</li>
+          <li>Dedicated study table and chair</li>
+          <li>Full-sized wardrobe with mirror</li>
+          <li>Attached private washroom with geyser</li>
+          <li>Personal fan, lighting, and charging sockets</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="room reverse">
+      <div class="room-gallery">
+        <button class="arrow left" onclick="prevImage('room4')">&#10094;</button>
+        <img id="room4" src="images/4sharing.jpeg" alt="4 Sharing Room">
+        <button class="arrow right" onclick="nextImage('room4')">&#10095;</button>
+      </div>
+      <div class="room-details">
+        <h3>4 Sharing Room - ₹5000/month</h3>
+        <p>Spacious and economical, suitable for groups or those who enjoy sharing. Offers comfort, security, and essential amenities.</p>
+        <ul>
+          <li>4 Beds with storage</li>
+          <li>Individual lockers and shelves</li>
+          <li>Fans and charging points for each bed</li>
+          <li>Attached or common bathroom</li>
+          <li>Ventilation and natural light</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="room">
+      <div class="room-gallery">
+        <button class="arrow left" onclick="prevImage('room5')">&#10094;</button>
+        <img id="room5" src="images/5sharing.jpeg" alt="5 Sharing Room">
+        <button class="arrow right" onclick="nextImage('room5')">&#10095;</button>
+      </div>
+      <div class="room-details">
+        <h3>5 Sharing Room - ₹4500/month</h3>
+        <p>Budget-friendly option for students and working women who wish to stay in a safe and community-style environment.</p>
+        <ul>
+          <li>5 Beds with partitions</li>
+          <li>Shared cupboard space</li>
+          <li>Common washroom with hot water</li>
+          <li>LED lights and sufficient plug points</li>
+          <li>Cleaned daily with basic furnishings</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 MANVI Luxury Ladies Hostel. All rights reserved.</p>
+    <p><a href="mailto:manviluxurypg@gmail.com">manviluxurypg@gmail.com</a></p>
+  </footer>
+
+  <script>
+    const roomImages = {
+      room1: ['images/1sharing.jpeg', 'images/1sharing2.jpeg'],
+      room4: ['images/4sharing.jpeg', 'images/4sharing2.jpeg'],
+      room5: ['images/5sharing.jpeg', 'images/5sharing2.jpeg']
+    };
+
+    const currentIndex = {
+      room1: 0,
+      room4: 0,
+      room5: 0
+    };
+
+    function nextImage(id) {
+      currentIndex[id] = (currentIndex[id] + 1) % roomImages[id].length;
+      document.getElementById(id).src = roomImages[id][currentIndex[id]];
+    }
+
+    function prevImage(id) {
+      currentIndex[id] = (currentIndex[id] - 1 + roomImages[id].length) % roomImages[id].length;
+      document.getElementById(id).src = roomImages[id][currentIndex[id]];
+    }
+  </script>
+</body>
+</html>

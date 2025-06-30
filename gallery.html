@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery - MANVI Luxury Ladies Hostel</title>
+  <link rel="stylesheet" href="styles/style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f9f9f9;
+      animation: fadeIn 1s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    header {
+      background-color: #5f4dee;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav a {
+      margin: 0 15px;
+      color: white;
+      text-decoration: none;
+    }
+
+    nav a.active {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    h2 {
+      text-align: center;
+      color: #5f4dee;
+      margin-top: 1rem;
+    }
+
+    .gallery-container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    .gallery-section {
+      margin-bottom: 3rem;
+    }
+
+    .gallery-item {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      animation: slideIn 0.5s ease-in-out;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateX(-50px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    .image-container {
+      position: relative;
+      width: 50%;
+    }
+
+    .slider-controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 10px;
+      box-sizing: border-box;
+    }
+
+    .slider-controls button {
+      background-color: rgba(95, 77, 238, 0.8);
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .gallery-item-content {
+      width: 50%;
+      padding: 1rem;
+    }
+
+    .gallery-item h3 {
+      color: #5f4dee;
+      margin-bottom: 0.5rem;
+    }
+
+    .gallery-item p {
+      color: #444;
+      margin: 0 0 1rem 0;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.95rem;
+    }
+
+    footer a {
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>MANVI Luxury Ladies Hostel (PG)</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="rooms.html">Rooms</a>
+      <a href="facilities.html">Facilities</a>
+      <a href="gallery.html" class="active">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <h2>Gallery</h2>
+  <div class="gallery-container">
+
+    <!-- Food and Hygiene Section -->
+    <div class="gallery-section">
+      <div class="gallery-item">
+        <div class="image-container">
+          <img src="images/f1.jpeg" alt="Nutritious Meals" id="food-slider">
+          <div class="slider-controls">
+            <button onclick="changeFoodImage(-1)">⟵</button>
+            <button onclick="changeFoodImage(1)">⟶</button>
+          </div>
+        </div>
+        <div class="gallery-item-content">
+          <h3>Nutritious Meals</h3>
+          <p>Home-cooked vegetarian and non-vegetarian food served hot every day.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CCTV Section -->
+    <div class="gallery-section">
+      <div class="gallery-item">
+        <div class="image-container">
+          <img src="images/cc1.jpeg" alt="CCTV Surveillance" id="cctv-slider">
+          <div class="slider-controls">
+            <button onclick="changeCCTVImage(-1)">⟵</button>
+            <button onclick="changeCCTVImage(1)">⟶</button>
+          </div>
+        </div>
+        <div class="gallery-item-content">
+          <h3>Security Surveillance</h3>
+          <p>24/7 CCTV coverage to ensure safety across all key points in the hostel.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Decoration Section -->
+    <div class="gallery-section">
+      <div class="gallery-item">
+        <div class="image-container">
+          <img src="images/d2.jpeg" alt="Decorations" id="deco-slider">
+          <div class="slider-controls">
+            <button onclick="changeDecoImage(-1)">⟵</button>
+            <button onclick="changeDecoImage(1)">⟶</button>
+          </div>
+        </div>
+        <div class="gallery-item-content">
+          <h3>Festive Decorations</h3>
+          <p>Colorful decorations and celebrations bring a homely feel during festivals and events.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2025 MANVI Luxury Ladies Hostel. All rights reserved.</p>
+    <p><a href="mailto:manviluxurypg@gmail.com">manviluxurypg@gmail.com</a></p>
+  </footer>
+
+  <script>
+    const foodImages = [
+      'images/f1.jpeg', 'images/f2.jpeg', 'images/f3.jpeg', 'images/f4.jpeg',
+      'images/f5.jpeg', 'images/f6.jpeg', 'images/f7.jpeg', 'images/f8.jpeg',
+      'images/f9.jpeg', 'images/f10.jpeg', 'images/f11.jpeg', 'images/f12.jpeg'
+    ];
+    const cctvImages = [
+      'images/cc1.jpeg', 'images/cc2.jpeg', 'images/cc3.jpeg', 'images/cc4.jpeg', 'images/cc5.jpeg'
+    ];
+    const decoImages = [
+      'images/d2.jpeg', 'images/d3.jpeg', 'images/d4.jpeg', 'images/d5.jpeg', 'images/d6.jpeg', 'images/d7.jpeg'
+    ];
+
+    let foodIndex = 0, cctvIndex = 0, decoIndex = 0;
+
+    function changeFoodImage(step) {
+      foodIndex = (foodIndex + step + foodImages.length) % foodImages.length;
+      document.getElementById('food-slider').src = foodImages[foodIndex];
+    }
+
+    function changeCCTVImage(step) {
+      cctvIndex = (cctvIndex + step + cctvImages.length) % cctvImages.length;
+      document.getElementById('cctv-slider').src = cctvImages[cctvIndex];
+    }
+
+    function changeDecoImage(step) {
+      decoIndex = (decoIndex + step + decoImages.length) % decoImages.length;
+      document.getElementById('deco-slider').src = decoImages[decoIndex];
+    }
+  </script>
+</body>
+</html>
